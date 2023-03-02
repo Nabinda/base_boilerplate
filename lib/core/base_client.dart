@@ -23,6 +23,20 @@ class BaseClient {
 
   _setupInterceptor() {
     _dio.interceptors.addAll([
+      //Incase of token required
+      InterceptorsWrapper(
+        onRequest: (RequestOptions options, RequestInterceptorHandler r) async {
+          options.headers["Authorization"] = "Bearer token";
+        },
+        onResponse: (Response response, ResponseInterceptorHandler r) async {
+          r.next(response);
+        },
+        onError: (e, handler) {
+          handler.next(e);
+          // handler.reject(e);
+        },
+      ),
+
       //To display log files in console
       PrettyDioLogger(
           requestHeader: true,
