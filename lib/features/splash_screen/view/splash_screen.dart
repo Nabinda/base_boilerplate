@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:base_boilerplate/routes/app_routes.gr.dart';
 import 'package:base_boilerplate/routes/routes_observer.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
