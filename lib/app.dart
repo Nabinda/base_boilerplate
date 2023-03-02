@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_boilerplate/routes/app_routes.gr.dart';
+import 'package:base_boilerplate/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class GlobalScrollBehavior extends ScrollBehavior {
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       title: 'Boiler plate',
       debugShowCheckedModeBanner: false,
       routeInformationParser: appRouter.defaultRouteParser(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       routerDelegate: AutoRouterDelegate(appRouter,
           navigatorObservers: () => [AutoRouteObserver()]),
       builder: (context, child) {
